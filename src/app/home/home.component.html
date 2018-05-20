@@ -1,0 +1,29 @@
+<hr class="mb-5">
+<div class="form-group">
+	<input 
+		type="text" 
+		class="form-control" 
+		(keyup)="search($event)" 
+		[(ngModel)]="name" 
+		placeholder="Search Contacts...">
+</div>
+
+<div class="list-group">
+	<div class="list-group-item list-group-item-action active">Contacts</div>
+	<button 
+		*ngFor="let contact of tempList" 
+		type="button" 
+		class="list-group-item list-group-item-action"
+		[routerLink]="['contact', contact.Id]"> {{contact.Name}}</button>
+	<button 
+		*ngIf="tempList?.length < 1" 
+		class="list-group-item" 
+		type="button"> No results found :(</button>
+</div>
+
+<br/>
+
+<div class="form-group">
+	<button type="reset" (click)="gotoDetail()" class="btn btn-success">Add Contact</button>
+</div>
+

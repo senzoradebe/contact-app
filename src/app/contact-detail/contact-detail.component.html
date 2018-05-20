@@ -1,0 +1,66 @@
+<div  *ngIf="filtersLoaded | async" class="container py-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<span class="anchor" id="formRegister"></span>
+			<div class="card card-outline-secondary">
+				<div class="card-header">
+					<h3 class="mb-0">{{contact.Name}}'s Contact Details</h3>
+				</div>
+				<div class="card-body">
+					<form class="form" role="form" autocomplete="off">
+						<div class="form-group">
+							<label for="inputId">ID</label>
+							<input 
+								type="number" 
+								class="form-control" 
+								[(ngModel)]="contact.Id"
+								id="inputId" 
+								name="inputId"
+								placeholder="Id"
+								readonly="">
+						</div>
+						<div class="form-group">
+							<label for="inputName">Name</label>
+							<input 
+								type="text" 
+								class="form-control" 
+								[(ngModel)]="contact.Name"
+								id="inputName" 
+								name="inputName"
+								placeholder="Full name">
+						</div>
+						<div class="form-group">
+							<label for="inputCell">Cell</label>
+							<input 
+								type="text" 
+								class="form-control" 
+								[(ngModel)]="contact.Cell"
+								id="inputCell" 
+								name="inputCell"
+								placeholder="Cell">
+						</div>
+						<div class="form-group">
+							<label for="inputEmail">Email</label>
+							<input 
+								type="email" 
+								[(ngModel)]="contact.Email"
+								class="form-control" 
+								id="inputEmail" 
+								name="inputEmail"
+								placeholder="Email" 
+								required="">
+						</div>
+						<div class="form-group row">
+							<div class="col-md-6">
+								<button type="submit" (click)="save()" class="btn btn-success btn-lg btn-block">Save</button>
+							</div>
+							<div class="col-md-6">
+								<button type="reset" (click)="back()" class="btn btn-default btn-lg btn-block">Back</button>
+							</div>
+						</div>
+					</form>
+				</div> 
+			</div>
+		</div>
+	</div>
+</div>
